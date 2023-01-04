@@ -1,8 +1,10 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import React from "react";
+import { useNavigation } from "@react-navigation/core";
 
 const Stories = () => {
+    const navigation = useNavigation();
   const stories = [
     {
       id: 1,
@@ -51,27 +53,27 @@ const Stories = () => {
     },
     {
       id: 10,
-      name: "Your Story",
+      name: "Roberto Jnr",
       image: require("../storage/userdp/product-2.jpg"),
     },
     {
       id: 11,
-      name: "Your Story",
+      name: "Kwasi Baako",
       image: require("../storage/userdp/product-3.jpg"),
     },
     {
       id: 12,
-      name: "Your Story",
+      name: "Brad Lee",
       image: require("../storage/userdp/product-4.jpg"),
     },
     {
       id: 13,
-      name: "Your Story",
+      name: "Lady Julie",
       image: require("../storage/userdp/product-5.jpg"),
     },
     {
       id: 13,
-      name: "Your Story",
+      name: "Asamoah Gyan",
       image: require("../storage/userdp/product-6.jpg"),
     },
   ];
@@ -83,7 +85,7 @@ const Stories = () => {
     >
       {stories.map((data, index) => {
         return (
-          <TouchableOpacity key={index}>
+          <TouchableOpacity key={index} onPress={()=>{navigation.push('Status', {name: data.name, image: data.image})}}>
             <View
               style={{
                 flexDirection: "column",
